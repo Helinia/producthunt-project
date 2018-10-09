@@ -32,12 +32,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="">Sign Up</a>
+              <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">Log out</a>
+              <form id="logout" method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <input type="hidden" />
+              </form>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Log In</a>
+              <a class="nav-link" href="{% url 'login' %}">Log In</a>
             </li>
+            {% endif%}
 
 
           </ul>
