@@ -12,16 +12,16 @@
 {% csrf_token %}
 Username:
 <br/>
-<input type="text" name="username" />
+<input type="text" name="username" pattern=".{3,}" required title = "3 characters or numbers minimum" />
 <br/>
 Password:
 <br/>
-<input type="password" name="password1" />
+<input type="password" name="password1" pattern=".{3,}" required title = "3 characters or numbers minimum"/>
 <br/>
 
 Confirm Password:
 <br/>
-<input type="password" name="password2" />
+<input type="password" name="password2" pattern=".{3,}" required title = "3 characters or numbers minimum"/>
 
 <br/>
 <br/>
